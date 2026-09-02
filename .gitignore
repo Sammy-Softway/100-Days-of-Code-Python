@@ -1,0 +1,6 @@
+.env
+*.zip
+.idea/
+Extras
+.venv
+.venv_stable
