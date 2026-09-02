@@ -2,5 +2,20 @@
 *.zip
 .idea/
 Extras
-.venv
-.venv_stable
+
+# Python virtual environments
+.venv/
+.venv_stable/
+venv/
+ENV/
+env/
+
+# Python cache and compiled bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Operating system files
+.DS_Store
+Thumbs.db
