@@ -2,6 +2,7 @@
 *.zip
 .idea/
 Extras
+chrome_profile
 
 # Python virtual environments
 .venv/
