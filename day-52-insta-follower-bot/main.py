@@ -15,7 +15,9 @@ SIMILAR_ACCOUNT = os.getenv('SIMILAR_ACCOUNT')
 
 class InstaFollower:
     def __init__(self):
-        self.driver = webdriver.Chrome()
+        # Initialize Chrome options to keep browser open or block notifications
+        self.options = webdriver.ChromeOptions()
+        self.driver = webdriver.Chrome(options=self.options)
 
     def login(self):
         self.driver.get(NAAN_URL)
