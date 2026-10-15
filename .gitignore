@@ -1,22 +1,28 @@
-.env
-*.zip
+# IDE Settings
 .idea/
+*.zip
 Extras
 chrome_profile
 
-# Python virtual environments
+# Databases & Local App Storage
+instance/
+*.db
+*.db-journal
+
+# Python Virtual Environments
+.env
 .venv/
 .venv_stable/
 venv/
 ENV/
 env/
 
-# Python cache and compiled bytecode
+# Python Cache and Compiled Bytecode
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 
-# Operating system files
+# Operating System Files
 .DS_Store
 Thumbs.db
