@@ -3,14 +3,12 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Email, Length
 import os
-from dotenv import load_dotenv
 from flask_bootstrap import Bootstrap5
 
 
-load_dotenv()
-SECRET_KEY = os.getenv("SECRET_KEY")
-THE_EMAIL = os.getenv("THE_EMAIL")
-THE_PASSWORD = os.getenv("THE_PASSWORD")
+SECRET_KEY = os.environ.get("SECRET_KEY")
+THE_EMAIL = os.environ.get("THE_EMAIL")
+THE_PASSWORD = os.environ.get("THE_PASSWORD")
 
 
 class LoginForm(FlaskForm):

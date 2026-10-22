@@ -3,16 +3,14 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from time import sleep
 import os
-from dotenv import load_dotenv
 
-load_dotenv()
 
 PROMISED_DOWN = 24
 PROMISED_UP = 13
-SPEED_TEST_URL = os.getenv('SPEED_TEST_URL')
-Y_LOGIN_URL = os.getenv("Y_LOGIN_URL")
-Y_EMAIL = os.getenv("Y_EMAIL")
-Y_PASSWORD = os.getenv("Y_PASSWORD")
+SPEED_TEST_URL = os.environ.get('SPEED_TEST_URL')
+Y_LOGIN_URL = os.environ.get("Y_LOGIN_URL")
+Y_EMAIL = os.environ.get("Y_EMAIL")
+Y_PASSWORD = os.environ.get("Y_PASSWORD")
 
 class InternetSpeedTwitterBot:
     def __init__(self):

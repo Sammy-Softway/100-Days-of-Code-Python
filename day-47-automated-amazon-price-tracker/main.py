@@ -2,9 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import smtplib
 import os
-from dotenv import load_dotenv
 
-load_dotenv()
 
 URL = os.environ.get('LINK')
 MY_EMAIL = os.environ.get("MY_EMAIL")

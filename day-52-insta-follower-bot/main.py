@@ -1,17 +1,15 @@
 import os
-from dotenv import load_dotenv
 from time import sleep
 from selenium import webdriver
 from selenium.common import ElementClickInterceptedException
 from selenium.webdriver import Keys, ActionChains
 from selenium.webdriver.common.by import By
 
-load_dotenv()
 
-NAAN_EMAIL = os.getenv('NAAN_EMAIL')
-NAAN_PASSWORD = os.getenv('NAAN_PASSWORD')
-NAAN_URL = os.getenv('NAAN_URL')
-SIMILAR_ACCOUNT = os.getenv('SIMILAR_ACCOUNT')
+NAAN_EMAIL = os.environ.get('NAAN_EMAIL')
+NAAN_PASSWORD = os.environ.get('NAAN_PASSWORD')
+NAAN_URL = os.environ.get('NAAN_URL')
+SIMILAR_ACCOUNT = os.environ.get('SIMILAR_ACCOUNT')
 
 class InstaFollower:
     def __init__(self):

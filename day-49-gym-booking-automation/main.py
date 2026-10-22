@@ -4,7 +4,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 import os
-from dotenv import load_dotenv
 import time
 
 
@@ -16,11 +15,10 @@ already_booked_or_waitlisted = 0
 
 # ----------------  Step 1 - Setup, Chrome Profile and Basic Navigation ----------------
 
-load_dotenv()
-GYM_NAME = os.getenv("GYM_NAME")
-GYM_EMAIL = os.getenv("GYM_EMAIL")
-GYM_PASSWORD = os.getenv("GYM_PASSWORD")
-GYM_URL = os.getenv("GYM_URL")
+GYM_NAME = os.environ.get("GYM_NAME")
+GYM_EMAIL = os.environ.get("GYM_EMAIL")
+GYM_PASSWORD = os.environ.get("GYM_PASSWORD")
+GYM_URL = os.environ.get("GYM_URL")
 
 chrome_options = webdriver.ChromeOptions()
 

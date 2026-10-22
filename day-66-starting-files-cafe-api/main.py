@@ -4,12 +4,9 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy import Integer, String, Boolean
 import random
 import os
-from dotenv import load_dotenv
 
 
-load_dotenv()
-
-TOPSECRETAPIKEY = os.getenv("TOPSECRETAPIKEY")
+TOPSECRETAPIKEY = os.environ.get("TOPSECRETAPIKEY")
 
 '''
 Install the required packages first: 

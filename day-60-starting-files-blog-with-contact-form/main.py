@@ -1,15 +1,12 @@
 import os
-
 from flask import Flask, render_template, request
 import requests
 import smtplib
-from dotenv import load_dotenv
 
-load_dotenv()
 
-MY_EMAIL = os.getenv("MY_EMAIL")
-MY_EMAIL_PASSWORD = os.getenv("MY_EMAIL_PASSWORD")
-RECEIVER_EMAIL = os.getenv("RECEIVER_EMAIL")
+MY_EMAIL = os.environ.get("MY_EMAIL")
+MY_EMAIL_PASSWORD = os.environ.get("MY_EMAIL_PASSWORD")
+RECEIVER_EMAIL = os.environ.get("RECEIVER_EMAIL")
 
 # USE YOUR OWN npoint LINK! ADD AN IMAGE URL FOR YOUR POST. 👇
 posts = requests.get("https://api.npoint.io/0f185497b97a7fc55af9").json()

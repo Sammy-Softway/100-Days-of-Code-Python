@@ -1,15 +1,13 @@
 from bs4 import BeautifulSoup
 import requests
 import  os
-from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from time import sleep
 
-load_dotenv()
 
-ZILLOW_URL = os.getenv("ZILLOW_CLONED_WEB")
-GOOGLE_FORM_LINK = os.getenv("GOOGLE_FORM_LINK")
+ZILLOW_URL = os.environ.get("ZILLOW_CLONED_WEB")
+GOOGLE_FORM_LINK = os.environ.get("GOOGLE_FORM_LINK")
 
 #Fetch HTML from the live website
 response = requests.get(ZILLOW_URL)

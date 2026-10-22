@@ -2,14 +2,12 @@ from flask import Flask, render_template
 import random
 from datetime import datetime
 import os
-from dotenv import load_dotenv
 import requests
 
-load_dotenv()
 
-GENDARIZE_URL = os.getenv("GENDARIZE_URL")
-GENDARIZE_API_KEY = os.getenv("GENDARIZE_API_KEY")
-AGIFY_URL = os.getenv("AGIFY_URL")
+GENDARIZE_URL = os.environ.get("GENDARIZE_URL")
+GENDARIZE_API_KEY = os.environ.get("GENDARIZE_API_KEY")
+AGIFY_URL = os.environ.get("AGIFY_URL")
 
 app = Flask(__name__)
 

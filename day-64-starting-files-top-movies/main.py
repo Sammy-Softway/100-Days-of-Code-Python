@@ -1,5 +1,3 @@
-from os.path import split
-
 from flask import Flask, render_template, redirect, url_for, request
 from flask_bootstrap import Bootstrap5
 from flask_sqlalchemy import SQLAlchemy
@@ -10,7 +8,6 @@ from wtforms import StringField, SubmitField, FloatField
 from wtforms.validators import DataRequired
 import requests
 import os
-from dotenv import load_dotenv
 
 '''
 Red underlines? Install the required packages first: 
@@ -25,17 +22,16 @@ pip3 install -r requirements.txt
 This will install the packages from requirements.txt for this project.
 '''
 
-#-------------------- Load_dotenv Values -----------------------#
-load_dotenv()
+#-------------------- Load env Values -----------------------#
 
-TMDB_MOVIE_SEARCH_URL = os.getenv("TMDB_MOVIE_SEARCH_URL")
-TMDB_API_READ_ACCESS_TOKEN = os.getenv("TMDB_API_READ_ACCESS_TOKEN")
-TMDB_MOVIE_INFO_URL = os.getenv("TMDB_MOVIE_INFO_URL")
-TMDB_MOVIE_IMG_URL = os.getenv("TMDB_MOVIE_IMG_URL")
+TMDB_MOVIE_SEARCH_URL = os.environ.get("TMDB_MOVIE_SEARCH_URL")
+TMDB_API_READ_ACCESS_TOKEN = os.environ.get("TMDB_API_READ_ACCESS_TOKEN")
+TMDB_MOVIE_INFO_URL = os.environ.get("TMDB_MOVIE_INFO_URL")
+TMDB_MOVIE_IMG_URL = os.environ.get("TMDB_MOVIE_IMG_URL")
 
 #-------------------- App Initializer -----------------------#
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 Bootstrap5(app)
 
 #-------------- Forms Built using FlaskForm -----------------#

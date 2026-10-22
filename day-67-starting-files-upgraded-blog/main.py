@@ -8,6 +8,7 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired, URL
 from flask_ckeditor import CKEditor, CKEditorField
 from datetime import date
+import os
 
 
 '''
@@ -24,7 +25,7 @@ This will install the packages from the requirements.txt for this project.
 '''
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = os.environ.get('FLASK_SECRETE_KEY')
 # Initialise the CKEditor so that you can use it in make_post.html
 ckeditor = CKEditor(app)
 Bootstrap5(app)
@@ -69,7 +70,7 @@ def get_all_posts():
     posts = db.session.execute(db.select(BlogPost)).scalars().all()
     return render_template("index.html", all_posts=posts)
 
-# TODO: Add a route so that you can click on individual posts.
+#Add a route so that you can click on individual posts.
 @app.route('/post/<int:post_id>')
 def show_post(post_id):
     # TODO: Retrieve a BlogPost from the database based on the post_id
@@ -95,7 +96,7 @@ def add_new_post():
         return redirect(url_for('get_all_posts'))
     return render_template("make-post.html", form=blog_form)
 
-# TODO: edit_post() to change an existing blog post
+#edit_post() to change an existing blog post
 @app.route('/edit-post/<int:post_id>', methods=['GET', 'POST'])
 def edit_post(post_id):
     # Fetch the existing post to edit from the database
@@ -123,7 +124,7 @@ def edit_post(post_id):
     #Pass is_edit=True to the template (helps customize the page heading)
     return render_template("make-post.html", form=form_fields, is_edit=True)
 
-# TODO: delete_post() to remove a blog post from the database
+#delete_post() to remove a blog post from the database
 @app.route('/delete-post/<int:post_id>')
 def delete_post(post_id):
     target_post = db.get_or_404(BlogPost, post_id)

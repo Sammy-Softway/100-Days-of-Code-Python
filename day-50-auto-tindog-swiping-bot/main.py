@@ -4,13 +4,11 @@ from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import ElementClickInterceptedException, NoSuchElementException
 from time import sleep
 import os
-from dotenv import load_dotenv
 
-load_dotenv()
 
-TINDOG_URL = os.getenv('TINDOG_URL')
-FACEBARK_EMAIL = os.getenv('FACEBARK_EMAIL')
-FACEBARK_PASSWORD = os.getenv('FACEBARK_PASSWORD')
+TINDOG_URL = os.environ.get('TINDOG_URL')
+FACEBARK_EMAIL = os.environ.get('FACEBARK_EMAIL')
+FACEBARK_PASSWORD = os.environ.get('FACEBARK_PASSWORD')
 
 driver = webdriver.Chrome()
 driver.get(TINDOG_URL)
